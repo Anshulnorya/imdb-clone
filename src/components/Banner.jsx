@@ -21,6 +21,7 @@ const Styledbanner = styled("img")({
   width: "100%",
 });
 function Banner({ movies }) {
+  
   return (
     <>
       <Box style={{ width: "65%" }}>
@@ -33,9 +34,13 @@ function Banner({ movies }) {
           infinite={true}
         >
           {movies.map((movie) => (
+            
             <Styledbanner
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               alt=""
+              key ={movie.id}
+             
+              
             />
           ))}
         </Carousel>

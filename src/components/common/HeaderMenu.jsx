@@ -1,28 +1,36 @@
-import React from 'react';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
+import React from "react";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Fade from "@mui/material/Fade";
+import { Link } from "react-router-dom";
+import { routhPath } from "../../constant/route";
 
-function HeaderMenu({open , handleClose}) {
-
-    const openMenu = Boolean(open);
+function HeaderMenu({ open, handleClose }) {
+  const openMenu = Boolean(open);
   return (
     <>
-     <Menu
+      <Menu
         id="fade-menu"
         MenuListProps={{
-          'aria-labelledby': 'fade-button',
+          "aria-labelledby": "fade-button",
         }}
         anchorEl={open}
         open={openMenu}
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={handleClose}>Popular</MenuItem>
-        <MenuItem onClick={handleClose}>Top rated</MenuItem>
-        <MenuItem onClick={handleClose}>Upcoming</MenuItem>
-      </Menu></>
-  )
+        <Link to={`${routhPath.catogry}?catogry=popular`}>
+          <MenuItem onClick={handleClose}>Popular</MenuItem>
+        </Link>
+        <Link to={`${routhPath.catogry}?catogry=Top Rated`}>
+          <MenuItem onClick={handleClose}>Top rated</MenuItem>
+        </Link>
+        <Link to={`${routhPath.catogry}?catogry=Upcoming`}>
+          <MenuItem onClick={handleClose}>Upcoming</MenuItem>
+        </Link>
+      </Menu>
+    </>
+  );
 }
 
-export default HeaderMenu
+export default HeaderMenu;
